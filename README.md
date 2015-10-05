@@ -20,7 +20,7 @@ grant all privileges on *.* to 'root'@'%' identified by 'newpassword';
 문자셋 변경:
 
 ```
-ALTER DATABASE databasename CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER DATABASE databaseName CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 ```
 
 타임존 조회:
@@ -32,13 +32,13 @@ SELECT @@global.time_zone;
 테이블 정보 조회:
 
 ```
-desc table_name;
+desc tableName;
 ```
 
 컬럼 속성 변경:
 
 ```
-ALTER TABLE table_name MODIFY attr BIGINT NOT NULL DEFAULT 100;
+ALTER TABLE tableName MODIFY attr BIGINT NOT NULL DEFAULT 100;
 ```
 
 버전체크:
@@ -56,8 +56,8 @@ set names 'utf8mb4'
 테이블 용량 체크:
 
 ```
-SELECT table_schema "Data Base Name", sum( data_length + index_length ) / 1024 / 1024 "Data Base Size in MB"
-FROM information_schema.TABLES GROUP BY table_schema;
+SELECT table_schema "DatabaseName", sum( data_length + index_length ) / 1024 / 1024 "Data Base Size in MB"
+FROM information_schema.TABLES GROUP BY table_shcema;
 ```
 
 ## Table
@@ -65,31 +65,31 @@ FROM information_schema.TABLES GROUP BY table_schema;
 테이블 컬럼 추가:
 
 ```
-ALTER TABLE table_name ADD attr varchar(10);
+ALTER TABLE tableName ADD attr varchar(10);
 ```
 
 테이블 속성 수정:
 
 ```
-ALTER TABLE table_name MODIFY attr INT NOT NULL AUTO_INCREMENT PRIMARY KEY;
+ALTER TABLE tableName MODIFY attr INT NOT NULL AUTO_INCREMENT PRIMARY KEY;
 ```
 
 데이터 업데이트:
 
 ```
-Update table_name set attr = value where id = 1;
+Update tableName set attr = value where id = 1;
 ```
 
 테이블 비우기:
 
 ```
-truncate table_name;
+truncate tableName;
 ```
 
 데이터 입력:
 
 ```
-INSERT INTO db_name.table_name (no, name, level, amount)
+INSERT INTO databaseName.tableName (no, name, level, amount)
 VALUES ('1002', 'chris', 'user', '10000');
 ```
 
@@ -102,7 +102,7 @@ CURTIME(): 지금 시간
 CONCAT(): 텍스트 합치기
 
 ```
-SELECT CONCAT(attr1, '-', attr2) FROM table_name;
+SELECT CONCAT(attr1, '-', attr2) FROM tableName;
 ```
 
 MD5(): 해쉬태그 생성
@@ -135,11 +135,11 @@ group by date order by date desc;
 ## 기존에 업는 데이터만 추가하는 쿼리
 
 ```
-INSERT INTO table_name (attr1, attr2)
+INSERT INTO tableName (attr1, attr2)
 SELECT ?, ?, NOW() FROM DUAL
 WHERE NOT EXISTS(
     SELECT 1
-    FROM table_name
+    FROM tableName
     WHERE attr1 = ?
   )
 LIMIT 1;
