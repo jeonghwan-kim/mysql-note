@@ -93,6 +93,13 @@ INSERT INTO databaseName.tableName (no, name, level, amount)
 VALUES ('1002', 'chris', 'user', '10000');
 ```
 
+데이터 삭제:
+
+```
+DELETE FROM databaseName.tableName where conditions;
+```
+
+
 ## Functions
 
 CURDATE():  오늘 날짜
