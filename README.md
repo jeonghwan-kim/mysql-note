@@ -60,6 +60,14 @@ SELECT table_schema "DatabaseName", sum( data_length + index_length ) / 1024 / 1
 FROM information_schema.TABLES GROUP BY table_shcema;
 ```
 
+기존 디비 복제:
+
+```
+mysqldump db1 > dump.sql
+mysqladmin create db2 
+mysql db2 < dump.sql
+```
+
 ## Table
 
 테이블 컬럼 추가:
