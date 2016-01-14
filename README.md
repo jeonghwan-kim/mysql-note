@@ -17,6 +17,13 @@ mysql -h localhost -u root -p
 grant all privileges on *.* to 'root'@'%' identified by 'newpassword';
 ```
 
+데이테베이스 생성/삭제
+
+```
+CREATE DATABASE test;
+DROP DATABASE test ;
+```
+
 문자셋 변경:
 
 ```
@@ -64,7 +71,7 @@ FROM information_schema.TABLES GROUP BY table_shcema;
 
 ```
 mysqldump db1 > dump.sql
-mysqladmin create db2 
+mysqladmin create db2
 mysql db2 < dump.sql
 ```
 
@@ -108,6 +115,40 @@ DELETE FROM databaseName.tableName where conditions;
 ```
 
 
+## 로그/디버깅
+
+일반 쿼리 로그 활성화/비활성화:
+
+```
+SET GLOBAL general_log='on';
+SET GLOBAL general_log='off';
+```
+
+로그를 테이블에 저장:
+
+```
+SET GLOBAL log_output='table';
+```
+
+로그 조회
+
+```
+SELECT * FROM mysql.general_log\G
+```
+
+쿼리 상태 조회:
+
+```
+EXPLAIN EXTENDED SELECT * FROM test WHERE id IN (1,2,3)\G
+```
+
+경고 출력:
+
+```
+show warnings\G
+```
+
+
 ## Functions
 
 CURDATE():  오늘 날짜
@@ -147,7 +188,7 @@ where type > 299 and type < 314
 group by date order by date desc;
 ```
 
-## 기존에 업는 데이터만 추가하는 쿼리
+## Upsert(기존에 없는 데이터만 추가하는 쿼리)
 
 ```
 INSERT INTO tableName (attr1, attr2)
