@@ -2,6 +2,20 @@ MySQL Note
 ==========
 MySQL 사용법과 팁을 정리한 문서입니다.
 
+## Environment
+
+타임존 조회:
+
+```
+SELECT @@global.time_zone;
+```
+
+서버 구동시간 조회(초단위):
+
+```
+SHOW GLOBAL STATUS like 'uptime';
+```
+
 
 ## Database
 
@@ -28,12 +42,6 @@ DROP DATABASE test ;
 
 ```
 ALTER DATABASE databaseName CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-```
-
-타임존 조회:
-
-```
-SELECT @@global.time_zone;
 ```
 
 테이블 정보 조회:
