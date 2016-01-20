@@ -122,6 +122,13 @@ VALUES ('1002', 'chris', 'user', '10000');
 DELETE FROM databaseName.tableName where conditions;
 ```
 
+테이블 복제:
+
+```
+CREATE TABLE test_problem LIKE problem;
+INSERT INTO test_problom SELECT * FROM problem;
+```
+
 
 ## 로그/디버깅
 
