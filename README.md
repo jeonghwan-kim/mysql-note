@@ -1,3 +1,5 @@
+> deprecated: https://github.com/jeonghwan-kim/tips 으로 이동
+
 MySQL Note
 ==========
 MySQL 사용법과 팁을 정리한 문서입니다.
